@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # Android kernel for OnePlus msm8996 devices build script by jcadduono
 
@@ -19,7 +20,7 @@ RDIR=$(pwd)
 VER=$(cat "$RDIR/VERSION")
 
 # directory containing cross-compile arm64 toolchain
-TOOLCHAIN=$HOME/build/toolchain/gcc-linaro-6.2.1-2016.11-x86_64_aarch64-linux-gnu
+TOOLCHAIN=$home/kranoner/build/toolchain/gcc-linaro-5.4.1-2017.05-x86_64_aarch64-linux-gnu
 
 CPU_THREADS=$(grep -c "processor" /proc/cpuinfo)
 # amount of cpu threads to use in kernel make process
@@ -36,7 +37,7 @@ cd "$RDIR" || ABORT "Failed to enter $RDIR!"
 
 CONTINUE=false
 export ARCH=arm64
-export CROSS_COMPILE=$TOOLCHAIN/bin/aarch64-linux-gnu-
+export CROSS_COMPILE=/home/kranoner/build/toolchain/gcc-linaro-5.4.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- 
 
 [ -x "${CROSS_COMPILE}gcc" ] ||
 ABORT "Unable to find gcc cross-compiler at location: ${CROSS_COMPILE}gcc"
@@ -54,7 +55,7 @@ while [ $# != 0 ]; do
 	shift
 done
 
-[ "$TARGET" ] || TARGET=AX7Kernel
+[ "$TARGET" ] || TARGET=HellsGate-Kernel
 
 DEFCONFIG=${TARGET}_defconfig
 
