@@ -59,7 +59,6 @@
 			qcom,limits-info = <&mitigation_profile0>;
 			enable-method = "psci";
 			qcom,ea = <&ea0>;
-			sched-energy-costs = <&CPU_COST_0 &CLUSTER_COST_0>;
 			next-level-cache = <&L2_0>;
 			L2_0: l2-cache {
 			      compatible = "arm,arch-cache";
@@ -82,7 +81,6 @@
 			qcom,limits-info = <&mitigation_profile1>;
 			enable-method = "psci";
 			qcom,ea = <&ea1>;
-			sched-energy-costs = <&CPU_COST_0 &CLUSTER_COST_0>;
 			next-level-cache = <&L2_0>;
 			L1_D_1: l1-dcache {
 				compatible = "arm,arch-cache";
@@ -100,7 +98,6 @@
 			qcom,limits-info = <&mitigation_profile2>;
 			enable-method = "psci";
 			qcom,ea = <&ea2>;
-			sched-energy-costs = <&CPU_COST_1 &CLUSTER_COST_1>;
 			next-level-cache = <&L2_1>;
 			L2_1: l2-cache {
 			      compatible = "arm,arch-cache";
@@ -123,7 +120,6 @@
 			enable-method = "psci";
 			qcom,limits-info = <&mitigation_profile3>;
 			qcom,ea = <&ea3>;
-			sched-energy-costs = <&CPU_COST_1 &CLUSTER_COST_1>;
 			next-level-cache = <&L2_1>;
 			L1_D_101: l1-dcache {
 				compatible = "arm,arch-cache";
@@ -155,121 +151,6 @@
 				};
 			};
 		};
-		energy-costs {
-			CPU_COST_0: core-cost0 {
-				busy-cost-data = <
-					146 93
-					201 122
-					228 138
-					265 165
-					310 193
-					347 238
-					402 306
-					457 371
-					493 430
-					530 485
-					566 541
-					585 585
-					630 651
-					667 731
-					704 826
-					758 925
-				>;
-				idle-cost-data = <
-			  		2 2 0
-				>;
-			};
-			CPU_COST_1: core-cost1 {
-				busy-cost-data = <
-					146 93
-					192 116
-					228 138
-					265 165
-					310 193
-					347 238
-					384 292
-					420 319
-					448 346
-					493 430
-					530 485
-					566 541
-					594 594
-					630 651
-					667 731
-					704 826
-					740 902
-					777 994
-					813 1049
-					850 1096
-					868 1209
-					914 1311
-					950 1441
-					987 1535
-					1024 1715
-				>;
-				idle-cost-data = <
-				      2 2 0
-				>;
-			};
-			CLUSTER_COST_0: cluster-cost0 {
-				busy-cost-data = <
-					146 4
-					201 4
-					228 4
-					265 4
-					310 4
-					347 7
-					402 9
-					457 15
-					493 20
-					530 21
-					566 28
-					585 30
-					630 40
-					667 47
-					704 49
-					758 52
-				>;
-				idle-cost-data = <
-					0
-					0
-				>;
-			};
-			CLUSTER_COST_1: cluster-cost1 {
-				busy-cost-data = <
-					146 4
-					192 4
-					228 4
-					265 4
-					310 4
-					347 7
-					384 8
-					420 9
-					448 15
-					493 20
-					530 21
-					566 28
-					594 31
-					630 40
-					667 47
-					704 49
-					740 50
-					777 60
-					813 67
-					850 70
-					868 75
-					914 81
-					950 90
-					987 93
-					1024 96
-				>;
-				idle-cost-data = <
-					0
-					0
-				>;
-			};
-		};
-
 	};
 
 	soc: soc { };
@@ -3082,7 +2963,7 @@
 		reg = <0x70000 0x1000>;
 		qcom,low-hyst-temp = <10>;
 		qcom,high-hyst-temp = <5>;
-		qcom,polling-interval = <100>;
+		qcom,polling-interval = <50>;
 
 		ea0: ea0 {
 			sensor = <&sensor_information4>;
