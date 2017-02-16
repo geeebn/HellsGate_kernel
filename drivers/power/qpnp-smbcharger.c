@@ -1908,7 +1908,7 @@ static int smbchg_set_usb_current_max(struct smbchg_chip *chip,
 	if (usb_supply_type == POWER_SUPPLY_TYPE_USB) {
 		if ((current_ma > CURRENT_150_MA) && (current_ma !=  CURRENT_500_MA)
 			&& (current_ma !=  CURRENT_900_MA))
-			current_ma = CURRENT_500_MA;
+			current_ma = CURRENT_900_MA;
 	}
 
 	switch (chip->usb_supply_type) {
@@ -1939,7 +1939,7 @@ static int smbchg_set_usb_current_max(struct smbchg_chip *chip,
 							rc);
 			} else {
 				/* default to 500mA */
-				current_ma = CURRENT_500_MA;
+				current_ma = CURRENT_900_MA;
 			}
 			pr_smb(PR_STATUS,
 				"override_usb_current=%d current_ma set to %d\n",
@@ -2000,7 +2000,7 @@ static int smbchg_set_usb_current_max(struct smbchg_chip *chip,
 				pr_err("Couldn't set CMD_IL rc = %d\n", rc);
 				goto out;
 			}
-			chip->usb_max_current_ma = 500;
+			chip->usb_max_current_ma = 900;
 		}
 <<<<<<< HEAD
 		if ((current_ma == CURRENT_500_MA) || (current_ma == CURRENT_900_MA)) {	// AP: Fast charge for USB
@@ -2133,7 +2133,7 @@ static int smbchg_set_fastchg_current_raw(struct smbchg_chip *chip,
 			dev_err(chip->dev, "Couldn't set %dmA rc=%d\n",
 					CURRENT_500_MA, rc);
 		else
-			chip->fastchg_current_ma = 500;
+			chip->fastchg_current_ma = 900;
 		return rc;
 	}
 
