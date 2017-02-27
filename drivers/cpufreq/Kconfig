@@ -132,14 +132,14 @@ config CPU_FREQ_DEFAULT_GOV_CULTIVATION
 	help
 	Use the CPUFreq governor 'cultivation' as default.
 
-config CPU_FREQ_DEFAULT_GOV_IMPULSE
-	bool "impulse"
-	select CPU_FREQ_GOV_IMPULSE
+config CPU_FREQ_DEFAULT_GOV_NEBULA
+	bool "interactive"
+	select CPU_FREQ_GOV_NEBULA
 	help
-	  Use the CPUFreq governor 'impulse' as default. This allows
+	  Use the CPUFreq governor 'nebula' as default. This allows
 	  you to get a full dynamic cpu frequency capable system by simply
 	  loading your cpufreq low-level hardware driver, using the
-	  'impulse' governor for latency-sensitive workloads.
+	  'nebula' governor for latency-sensitive workloads.
 
 config CPU_FREQ_DEFAULT_GOV_LIONFISH
 	bool "lionfish"
@@ -274,12 +274,6 @@ config CPU_FREQ_GOV_INTERACTIVE
 
 	  For details, take a look at linux/Documentation/cpu-freq.
 
-config CPU_FREQ_GOV_IMPULSE
-	tristate "'impulse' cpufreq policy governor"
-	help
-	  'impulse' - This driver adds a dynamic cpufreq policy governor
-	  designed for latency-sensitive workloads.
-
 config CPU_FREQ_DEFAULT_GOV_IRONACTIVE
 	bool "ironactive"
 	select CPU_FREQ_GOV_IRONACTIVE
@@ -288,11 +282,22 @@ config CPU_FREQ_DEFAULT_GOV_IRONACTIVE
 	  is based on the 'interactive' governor with many changes made by
 	  CAF.
 
-config CPU_FREQ_GOV_IMPULSE
-	tristate "'impulse' cpufreq policy governor"
+config CPU_FREQ_GOV_NEBULA
+	tristate "'nebula' cpufreq policy governor"
 	help
-	  'impulse' - This driver adds a dynamic cpufreq policy governor
-          designed for latency-sensitive workloads.
+	  'nebula' - This driver adds a dynamic cpufreq policy governor
+	  designed for latency-sensitive workloads.
+
+	  This governor attempts to reduce the latency of clock
+	  increases so that the system is more responsive to
+	  interactive workloads.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called cpufreq_interactive.
+
+	  For details, take a look at linux/Documentation/cpu-freq.
+
+	  If in doubt, say N.
 
 config CPU_FREQ_GOV_BIOSHOCK
 	tristate "'bioshock' cpufreq bioshock"
@@ -336,16 +341,6 @@ config CPU_FREQ_GOV_ELEMENTALX
 	  For details, take a look at linux/Documentation/cpu-freq.
 
 	  If in doubt, say N
-
-config CPU_FREQ_DEFAULT_GOV_ZZMOOVE
-	bool "zzmoove"
-	select CPU_FREQ_GOV_ZZMOOVE
-	select CPU_FREQ_GOV_PERFORMANCE
-	help
-	  Use the CPUFreq governor 'zzmoove' as default, using predefined
-	  frequency lookup tables and optimized scaling triggers instead of
-	  % frequency steps to get smooth up/downscaling dependant on CPU load.
-
 
 config CPU_FREQ_GOV_CONSERVATIVE
 	tristate "'conservative' cpufreq governor"
@@ -415,14 +410,6 @@ config CPU_FREQ_GOV_IRONACTIVE
 
 	  To compile this driver as a module, choose M here: the
 	  module will be called cpufreq_ironactive.
-
-config CPU_FREQ_GOV_ZZMOOVE
-	tristate "'zzmoove' cpufreq governor"
-	depends on CPU_FREQ
-	help
-	  'zzmoove' - based on cpufreq_conservative, using predefined
-	  frequency lookup tables and optimized scaling triggers instead of
-	  % frequency steps to get smooth up/downscaling dependant on CPU load.
 
 	  if in doubt, say N.
 
