@@ -1,8 +1,8 @@
 VERSION = 3
 PATCHLEVEL = 18
-SUBLEVEL = 51
+SUBLEVEL = 54
 EXTRAVERSION =
-NAME = HellsGate.V1
+NAME = HellsGate.V2
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"

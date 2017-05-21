@@ -1028,7 +1028,6 @@ static int unix_bind(struct socket *sock, struct sockaddr *uaddr, int addr_len)
 		umode_t mode = S_IFSOCK |
 		       (SOCK_INODE(sock)->i_mode & ~current_umask());
 		err = unix_mknod(dentry, &path, mode, &u_path);
-		err = unix_mknod(sun_path, mode, &path);
 		if (err) {
 			if (err == -EEXIST)
 				err = -EADDRINUSE;
