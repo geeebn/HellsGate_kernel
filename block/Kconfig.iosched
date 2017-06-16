@@ -123,8 +123,7 @@ config IOSCHED_SWITCHER
 	  on. It requires being manually initialized from a different driver
 	  in order to grab the request_queue pointer that should have its I/O
 	  scheduler switched to Noop when the screen turns off.
- turns off
-
+ 
 choice
 	prompt "Default I/O scheduler"
 	default DEFAULT_CFQ
