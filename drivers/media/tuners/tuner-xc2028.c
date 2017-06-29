@@ -1100,7 +1100,6 @@ static int generic_set_freq(struct dvb_frontend *fe, u32 freq /* in HZ */,
 		 * version of this change. Reports with xc3028l working
 		 * with and without the lines bellow are welcome
 		 */
-
 		if (priv->firm_version < 0x0302) {
 			if (priv->cur_fw.type & DTV7)
 				offset += 500000;
@@ -1402,11 +1401,6 @@ static int xc2028_set_config(struct dvb_frontend *fe, void *priv_cfg)
 	 * Copy the config data.
 	 */
 	memcpy(&priv->ctrl, p, sizeof(priv->ctrl));
-	if (p->fname) {
-		priv->ctrl.fname = kstrdup(p->fname, GFP_KERNEL);
-		if (priv->ctrl.fname == NULL)
-			return -ENOMEM;
-	}
 
 	/*
 	 * If firmware name changed, frees firmware. As free_firmware will
@@ -1442,6 +1436,7 @@ static int xc2028_set_config(struct dvb_frontend *fe, void *priv_cfg)
 		} else
 			priv->state = XC2028_WAITING_FIRMWARE;
 	}
+unlock:
 	mutex_unlock(&priv->lock);
 
 	return rc;
