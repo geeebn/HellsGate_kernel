@@ -554,6 +554,15 @@ extern struct cpufreq_governor cpufreq_gov_hellsactive;
 #elif defined(CPU_FREQ_DEFAULT_GOV_CULTIVATION)
 extern struct cpufreq_governor cpufreq_gov_cultivation;
 #define CPUFREQ_DEFAULT_GOVERNOR (&cpufreq_gov_cultivation)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ALUCARD)
+extern struct cpufreq_governor cpufreq_gov_alucard;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_alucard)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DESPAIR)
+extern struct cpufreq_governor cpufreq_gov_despair;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_despair)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ELECTRON)
+extern struct cpufreq_governor cpufreq_gov_electron;
+#define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_electron)
 #endif
 
 /*********************************************************************
