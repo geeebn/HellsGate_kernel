@@ -74,9 +74,6 @@ unsigned int offset = sizeof(struct ipv6hdr);
 			return offset;
 		}
 
-<<<<<<< HEAD
-		offset += ipv6_optlen(exthdr);
-=======
 		if (offset + sizeof(struct ipv6_opt_hdr) > packet_len)
 			return -EINVAL;
 
@@ -86,7 +83,6 @@ unsigned int offset = sizeof(struct ipv6hdr);
 		if (len + offset >= IPV6_MAXPLEN)
 			return -EINVAL;
 		offset += len;
->>>>>>> 9cd15cf... patch-3.18.63-64
 		*nexthdr = &exthdr->nexthdr;
 		exthdr = (struct ipv6_opt_hdr *)(skb_network_header(skb) +
 						 offset);
