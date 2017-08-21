@@ -114,4 +114,3 @@ fi
 BUILD_KERNEL &&
 INSTALL_MODULES &&
 echo "Finished building $LOCALVERSION!"
-
