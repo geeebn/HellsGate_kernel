@@ -408,13 +408,8 @@ KBUILD_CFLAGS   := -Wno-error \
 		   -fno-strict-aliasing -fno-common \
 		   -Wno-format-security \
 		   -std=gnu89\
-<<<<<<< HEAD
-            -mcpu=cortex-a57 -mtune=cortex-a57 \
-            -fno-delete-null-pointer-checks -Wno-format-truncation -Wno-duplicate-decl-specifier -Wno-memset-elt-size -Wno-bool-operation -Wno-int-in-bool-context -Wno-parentheses -Wno-switch-unreachable -Wno-stringop-overflow -Wno-format-overflow -mstrict-align
-=======
                    -mcpu=cortex-a57 -mtune=cortex-a57 \
                    -fno-delete-null-pointer-checks -Wno-format-truncation -Wno-duplicate-decl-specifier -Wno-memset-elt-size -Wno-bool-operation -Wno-int-in-bool-context -Wno-parentheses -Wno-switch-unreachable -Wno-stringop-overflow -Wno-format-overflow -mstrict-align
->>>>>>> 3b4a30adefad0f448346549c0aa17aec3a96e08b
 
 KBUILD_AFLAGS_KERNEL :=
 KBUILD_CFLAGS_KERNEL :=
