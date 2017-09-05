@@ -20,7 +20,7 @@ RDIR=$(pwd)
 VER=$(cat "$RDIR/VERSION")
 
 # directory containing cross-compile arm64 toolchain
-TOOLCHAIN=$home/kranoner/build/toolchain/aarch64-linux-gnu-kernel-linaro
+TOOLCHAIN=$home/kranoner/build/toolchain/aarch64-linux-gnu-8.x
 
 CPU_THREADS=$(grep -c "processor" /proc/cpuinfo)
 # amount of cpu threads to use in kernel make process
@@ -37,7 +37,7 @@ cd "$RDIR" || ABORT "Failed to enter $RDIR!"
 
 CONTINUE=false
 export ARCH=arm64
-export CROSS_COMPILE=/home/kranoner/build/toolchain/aarch64-linux-gnu-kernel-linaro/bin/aarch64-linux-gnu- 
+export CROSS_COMPILE=/home/kranoner/build/toolchain/aarch64-linux-gnu-8.x/bin/aarch64-linux-gnu- 
 
 [ -x "${CROSS_COMPILE}gcc" ] ||
 ABORT "Unable to find gcc cross-compiler at location: ${CROSS_COMPILE}gcc"
